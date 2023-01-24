@@ -1,6 +1,27 @@
 const BtnToggleEleve = document.querySelector("#btn-toggle-eleve");
 const BtnToggleMatiere = document.querySelector("#btn-toggle-matiere");
 const BtnToggleNote = document.querySelector("#btn-toggle-note");
+const BtnSubmitEleve = document.querySelector("#btn-submit-eleve");
+const BtnSubmitMatiere = document.querySelector("#btn-submit-matiere");
+const BtnSubmitNote = document.querySelector("#btn-submit-note");
+const selectMatiereNote = document.querySelector('#form-select-matiere')
+const selectMatiere = document.querySelector("#select-matiere");
+const selectEleveNote = document.querySelector("#form-select-eleve");
+const selectEleve = document.querySelector("#select-eleve");
+
+let eleves = [
+
+]
+
+let matieres = [
+    {
+        intitule : "science"
+    }
+]
+
+let notes = [
+
+]
 
 BtnToggleEleve.addEventListener("click", () => {
     
@@ -27,3 +48,81 @@ BtnToggleNote.addEventListener("click", () => {
     }
     
 });
+
+BtnSubmitEleve.addEventListener('click', () => {
+    let nomEleve = document.getElementById("lastname").value;
+    let prenomEleve = document.getElementById("firstname").value;
+
+    eleves.push({
+        nom : nomEleve,
+        prenom : prenomEleve
+    })
+
+    eleveSelect();
+    eleveSelectNote();
+    console.table(eleves);
+});
+
+BtnSubmitMatiere.addEventListener('click', () => {
+    let intituleMatiere = document.getElementById("intitule").value;
+
+    matieres.push({
+        intitule : intituleMatiere
+    })
+
+    MatiereSelect();
+    MatiereSelectNote();
+    console.table(matieres);
+});
+
+
+BtnSubmitNote.addEventListener('click', () => {
+    // let nameEleve = document.getElementsByName("eleve-name").value
+    let noteEleve = Number(document.getElementById("note").value);
+    // let matiereEleve = document.getElementsByName("matiere").value;
+
+    notes.push({
+        // eleve : nameEleve,
+        note : noteEleve,
+        // matiere : matiereEleve
+    })
+
+    console.table(notes);
+})
+
+const eleveSelect = () => {
+    selectEleve.innerHTML = `<option value="0">Sélectionnez un élève</option>`;
+    eleves.forEach(eleve => {
+        selectEleve.innerHTML += `<option value="${eleves.indexOf(eleve)+1}">${eleve.nom} ${eleve.prenom}</option>`
+    })
+}
+
+const eleveSelectNote = () => {
+    selectEleveNote.innerHTML = `<option value="0">Sélectionnez un élève</option>`;
+    eleves.forEach(eleve => {
+        selectEleveNote.innerHTML += `<option value="${eleves.indexOf(eleve)+1}">${eleve.nom} ${eleve.prenom}</option>`
+    })
+}
+
+const MatiereSelect = () => {
+     selectMatiere.innerHTML =`<option value="0">Liste des matières</option>`;
+     matieres.forEach(matiere => {
+        selectMatiere.innerHTML += `<option value ="${matieres.indexOf(matiere)+1}">${matiere.intitule}</option>`;
+     });
+};
+
+const MatiereSelectNote = () => {
+     selectMatiereNote.innerHTML =`<option value="0">Selectionnez une matière</option>`;
+     matieres.forEach(matiere => {
+        selectMatiereNote.innerHTML += `<option value ="${matieres.indexOf(matiere)+1}">${matiere.intitule}</option>`;
+     });
+}
+
+
+
+onload = () => {
+    eleveSelect()
+    eleveSelectNote();
+    MatiereSelect();
+    MatiereSelectNote();
+}

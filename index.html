@@ -45,7 +45,7 @@
                               </div>            
                         </form>
                         <div class="d-flex justify-content-end">
-                            <button class="bg-dark border-white text-light rounded">
+                            <button class="bg-dark border-white text-light rounded" id="btn-submit-eleve">
                                 <i class="bi bi-send"></i> Ajouter
                             </button>
                         </div>
@@ -72,7 +72,7 @@
                               </div>         
                         </form>
                         <div class="d-flex justify-content-end">
-                            <button class="bg-dark border-white text-light rounded">
+                            <button class="bg-dark border-white text-light rounded" id="btn-submit-matiere">
                                 <i class="bi bi-send"></i> Ajouter
                             </button>
                         </div>
@@ -94,11 +94,7 @@
                             <form action="AddNote">
                                 <div class="mb-3 row align-items-center">
                                     <label for="eleve" class="form-label me-5 col-2">Elève: </label>
-                                    <select class="form-select me-3 col" id="floatingSelectGrid">
-                                        <option selected>Sélectionnez un élève</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select me-3 col" id="select-eleve">
                                       </select>
                                   </div>
                                 <div class="mb-3 row align-items-center">
@@ -107,16 +103,12 @@
                                   </div>            
                                   <div class="mb-3 row align-items-center">
                                     <label for="select-matiere" class="form-label me-5 col-2">Matière: </label>
-                                    <select class="form-select me-3 col" id="floatingSelectGrid">
-                                        <option selected>Sélectionnez une matière</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select me-3 col" id="select-matiere">
                                       </select>
                                   </div>            
                             </form>
                             <div class="d-flex justify-content-end">
-                                <button class="bg-dark border-white text-light rounded">
+                                <button class="bg-dark border-white text-light rounded" id="btn-submit-note">
                                     <i class="bi bi-send"></i> Ajouter
                                 </button>
                             </div>
@@ -132,19 +124,12 @@
             <hr/>
             <div class="row">
                 <div class="col-6">
-                    <select class="form-select" id="floatingSelectGrid">
-                        <option selected>Toute les classes</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="form-select-eleve">
                       </select>
                 </div>
                 <div class="col-6">
-                    <select class="form-select" id="floatingSelectGrid">
-                        <option selected>Toute les matières</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="form-select-matiere">
+                        <option value="0">Liste des matières</option>
                       </select>
                 </div>
             </div>

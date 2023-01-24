@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Liste de Notes</title>
+  </head>
+  <body>
+    <main>
+      <div class="container bg-dark my-3 py-3 text-light mx-auto">
+        <h1>- Liste de Notes -</h1>
+        <hr />
+        <div class="row">
+            <div class="col-4">
+                <div class="d-flex justify-content-between">
+                    <h2>Ajouter un Elève</h2>
+                    <span>
+                        <button class="btn border-white text-light" data-bs-toggle="collapse" href="#CollapseEleve" role="button" aria-expanded="false" aria-controls="CollapseEleve">OFF</button>                    
+                    </span>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col">
+                      <div class="collapse" id="CollapseEleve">
+                        <form action="AddEleve">
+                            <div class="mb-3 row align-items-center">
+                                <label for="lastname" class="form-label me-5 col-2">Nom: </label>
+                                <input type="text" class="form-control me-3 col" id="lastname" name="lastname" placeholder="martin">
+                              </div>
+                            <div class="mb-3 row align-items-center">
+                                <label for="firstname" class="form-label me-5 col-2">Prénom: </label>
+                                <input type="text" class="form-control me-3 col" id="firstname" name="firstname" placeholder="john">
+                              </div>            
+                        </form>
+                        <div class="d-flex justify-content-end">
+                            <button class="bg-dark border-white text-light rounded">
+                                <i class="bi bi-send"></i> Ajouter
+                            </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+            </div>
+            <div class="col-4">
+                <div class="d-flex justify-content-between">
+                    <h2>Ajouter une Matière</h2>
+                    <span>
+                        <button class="btn border-white text-light" data-bs-toggle="collapse" href="#CollapseMatiere" role="button" aria-expanded="false" aria-controls="CollapseMatiere">OFF</button>                    
+                    </span>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col">
+                      <div class="collapse" id="CollapseMatiere">
+                        <form action="AddMatiere">
+                            <div class="mb-3 row align-items-center">
+                                <label for="intitule" class="form-label me-5 col-2">Intitulé: </label>
+                                <input type="text" class="form-control me-3 col" id="intitule" name="intitule" placeholder="science">
+                              </div>         
+                        </form>
+                        <div class="d-flex justify-content-end">
+                            <button class="bg-dark border-white text-light rounded">
+                                <i class="bi bi-send"></i> Ajouter
+                            </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-4">
+                    <div class="d-flex justify-content-between">
+                        <h2>Ajouter une Note</h2>
+                        <span>
+                            <button class="btn border-white text-light" data-bs-toggle="collapse" href="#CollapseNote" role="button" aria-expanded="false" aria-controls="CollapseNote">OFF</button>                    
+                        </span>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="col">
+                          <div class="collapse" id="CollapseNote">
+                            <form action="AddNote">
+                                <div class="mb-3 row align-items-center">
+                                    <label for="eleve" class="form-label me-5 col-2">Elève: </label>
+                                    <select class="form-select me-3 col" id="floatingSelectGrid">
+                                        <option selected>Sélectionnez un élève</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                  </div>
+                                <div class="mb-3 row align-items-center">
+                                    <label for="note" class="form-label me-5 col-2">Note: </label>
+                                    <input type="number" class="form-control me-3 col" id="note" name="note" placeholder="8">
+                                  </div>            
+                                  <div class="mb-3 row align-items-center">
+                                    <label for="select-matiere" class="form-label me-5 col-2">Matière: </label>
+                                    <select class="form-select me-3 col" id="floatingSelectGrid">
+                                        <option selected>Sélectionnez une matière</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                      </select>
+                                  </div>            
+                            </form>
+                            <div class="d-flex justify-content-end">
+                                <button class="bg-dark border-white text-light rounded">
+                                    <i class="bi bi-send"></i> Ajouter
+                                </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+            </div>
+        </div>
+        <hr/>
+        <div>
+            <h2>Sélection</h2>
+            <hr/>
+            <div class="row">
+                <div class="col-6">
+                    <select class="form-select" id="floatingSelectGrid">
+                        <option selected>Toute les classes</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-select" id="floatingSelectGrid">
+                        <option selected>Toute les matières</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Notes</h2>
+            <hr/>
+            <div class="d-flex">
+                <table class="table text-light">
+                    <thead>
+                      <tr>
+                        <th scope="col-3">Nom</th>
+                        <th scope="col-3">Prenom</th>
+                        <th scope="col-3">Matière</th>
+                        <th scope="col-3">Note</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                    </tr>
+                      <tr>
+                      </tr>
+                      <tr>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+      </div>
+    </main>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./main.js"></script>
+</html>

@@ -8,6 +8,7 @@ const selectMatiereNote = document.querySelector('#form-select-matiere')
 const selectMatiere = document.querySelector("#select-matiere");
 const selectEleveNote = document.querySelector("#form-select-eleve");
 const selectEleve = document.querySelector("#select-eleve");
+const tableNotes = document.querySelector('#table-notes');
 
 let eleves = [
 
@@ -77,16 +78,20 @@ BtnSubmitMatiere.addEventListener('click', () => {
 
 
 BtnSubmitNote.addEventListener('click', () => {
-    // let nameEleve = document.getElementsByName("eleve-name").value
     let noteEleve = Number(document.getElementById("note").value);
-    // let matiereEleve = document.getElementsByName("matiere").value;
+    let nomEleve = document.getElementById('lastname').value;
+    let prenomEleve = document.getElementById("firstname").value;
+    let intituleMatiere = document.getElementById("intitule").value;
+
 
     notes.push({
-        // eleve : nameEleve,
+        nom : nomEleve,
+        prenom : prenomEleve,
         note : noteEleve,
-        // matiere : matiereEleve
+        intitule : intituleMatiere
     })
 
+    tableauNoteEleve();
     console.table(notes);
 })
 
@@ -116,6 +121,12 @@ const MatiereSelectNote = () => {
      matieres.forEach(matiere => {
         selectMatiereNote.innerHTML += `<option value ="${matieres.indexOf(matiere)+1}">${matiere.intitule}</option>`;
      });
+}
+
+const tableauNoteEleve = () => {
+    notes.forEach(note => {
+        tableNotes.innerHTML += `<tr><td>${note.nom}</td> <td>${note.prenom}</td> <td>${note.intitule}</td> <td>${note.note}</td><tr>`;
+    })
 }
 
 

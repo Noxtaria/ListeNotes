@@ -11,17 +11,18 @@ const selectEleve = document.querySelector("#select-eleve");
 const tableNotes = document.querySelector('#table-notes');
 
 let eleves = [
-
 ]
 
 let matieres = [
-    {
-        intitule : "science"
-    }
 ]
 
 let notes = [
-
+{
+    nom : "Phil",
+    prenom : "Spen",
+    note : 7,
+    intitule : "Math"
+}
 ]
 
 BtnToggleEleve.addEventListener("click", () => {
@@ -91,7 +92,7 @@ BtnSubmitNote.addEventListener('click', () => {
         intitule : intituleMatiere
     })
 
-    tableauNoteEleve();
+    // tableauNoteEleve();
     console.table(notes);
 })
 
@@ -123,17 +124,32 @@ const MatiereSelectNote = () => {
      });
 }
 
-const tableauNoteEleve = () => {
-    notes.forEach(note => {
-        tableNotes.innerHTML += `<tr><td>${note.nom}</td> <td>${note.prenom}</td> <td>${note.intitule}</td> <td>${note.note}</td><tr>`;
-    })
-}
+// const tableauNoteEleve = () => {
+//     notes.forEach(note => {
+//         tableNotes.innerHTML += `<tr><td>${note.nom}</td> <td>${note.prenom}</td> <td>${note.intitule}</td> <td>${note.note}</td><tr>`;
+//     })
+// }
+
+tableNotes.addEventListener('change', () => {
+    
+    let nom = notes.nom.value;
+    let prenom = notes.prenom.value;
+    if(nom && prenom){      
+        notes.forEach(note => {
+            tableNotes.innerHTML += `<tr><td>${note.nom}</td> <td>${note.prenom}</td> <td>${note.intitule}</td> <td>${note.note}</td><tr>`;
+        })
+    } else {
+        tableNotes.innerHTML += `<p>Bonjour vous êtes dans l'erreur</p>`
+    }
+})
 
 
 
-onload = () => {
-    eleveSelect()
+onLoad = () => {
+    eleveSelect();
     eleveSelectNote();
     MatiereSelect();
     MatiereSelectNote();
 }
+
+onLoad();
